@@ -1,0 +1,26 @@
+import java.util.*;
+class ActivitySelectionproblem {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int ArR[][]=new int[n][2];
+        for(int i=0;i<ArR.length;i++){
+            ArR[i][0]=sc.nextInt();
+            ArR[i][1]=sc.nextInt();
+        }
+        System.out.println(flc(ArR));
+    }
+   
+    public static int flc(int [][] ArR){
+        Arrays.sort(ArR, (a,b)-> a[1]-b[1]);
+        int ans=1;
+        int ii=ArR[0][1];
+        for(int i=1;i<ArR.length;i++){
+            if(ArR[i][0]>=ii){
+                ans++;
+                ii=ArR[i][1];
+            }
+        }
+        return ans;
+    }
+}
